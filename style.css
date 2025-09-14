@@ -1,0 +1,7 @@
+.book-table {
+  font-size: 1.2rem;
+  margin-top: 50px;
+  display: flex;
+  border: 1px solid black;
+  gap: 10em;
+}
