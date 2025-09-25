@@ -4,6 +4,12 @@ const authorInput = document.querySelector("#author");
 const pagesInput = document.querySelector("#pages");
 const bookStatusInput = document.querySelector("#status");
 
+const bookTable = document.querySelector(".book-table");
+// const titleHTML = document.querySelector("#titleDisplay");
+// const authorHTML = document.querySelector("#authorDisplay");
+// const pagesHTML = document.querySelector("#pagesDisplay");
+// const bookStatusHTML = document.querySelector("#statusDisplay");
+
 // console.log(title);
 
 submit.addEventListener("click", () => {
@@ -16,9 +22,23 @@ const myLibrary = [];
 // const book2 = new Book("Success is Decision", "Tim connor", 65, "read");
 
 function displayBooks() {
+  const row = document.createElement("div");
+  bookTable.append(row);
+
+  const titleData = document.createElement("div");
+  const authorData = document.createElement("div");
+  const pagesData = document.createElement("div");
+  const bookStatusDisplayData = document.createElement("div");
+  row.append(titleData, authorData, pagesData, bookStatusDisplayData);
+  // row.append(titleHTML, authorHTML, pagesHTML, bookStatusHTML);
   for (let i = 0; i < myLibrary.length; i++) {
-    let titleHTML = myLibrary.map((item) => item.title);
-    let authorHTML = myLibrary.map((item) => item.author);
+    titleData.textContent = myLibrary[i].title;
+
+    authorData.textContent = myLibrary[i].author;
+
+    pagesData.textContent = myLibrary[i].pages;
+
+    bookStatusDisplayData.textContent = myLibrary[i].status;
   }
 }
 
@@ -39,6 +59,10 @@ function addBookToLibrary() {
   myLibrary.push(book);
   console.log(myLibrary);
   displayBooks();
+
+  titleInput.value = "";
+  authorInput.value = "";
+  pagesInput.value = "";
 }
 
 // addBookToLibrary(book1);
