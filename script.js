@@ -23,14 +23,16 @@ const myLibrary = [];
 
 function displayBooks() {
   const row = document.createElement("div");
+  const cells = document.createElement("div");
+  cells.className = "cells";
+  row.className = "row";
   bookTable.append(row);
+  row.append(cells);
 
-  const titleData = document.createElement("div");
-  const authorData = document.createElement("div");
-  const pagesData = document.createElement("div");
-  const bookStatusDisplayData = document.createElement("div");
-  row.append(titleData, authorData, pagesData, bookStatusDisplayData);
-  // row.append(titleHTML, authorHTML, pagesHTML, bookStatusHTML);
+  // const titleData = document.createElement("p");
+  // const authorData = document.createElement("p");
+  // const pagesData = document.createElement("p");
+  // const bookStatusDisplayData = document.createElement("p");
   for (let i = 0; i < myLibrary.length; i++) {
     titleData.textContent = myLibrary[i].title;
 
