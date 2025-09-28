@@ -4,13 +4,7 @@ const authorInput = document.querySelector("#author");
 const pagesInput = document.querySelector("#pages");
 const bookStatusInput = document.querySelector("#status");
 
-const bookTable = document.querySelector(".book-table");
-// const titleHTML = document.querySelector("#titleDisplay");
-// const authorHTML = document.querySelector("#authorDisplay");
-// const pagesHTML = document.querySelector("#pagesDisplay");
-// const bookStatusHTML = document.querySelector("#statusDisplay");
-
-// console.log(title);
+const bookTable = document.querySelector("table");
 
 submit.addEventListener("click", () => {
   addBookToLibrary();
@@ -18,29 +12,21 @@ submit.addEventListener("click", () => {
 
 const myLibrary = [];
 
-// const book1 = new Book("The hobbit", "J.R.R", 259, "not read yet");
-// const book2 = new Book("Success is Decision", "Tim connor", 65, "read");
-
 function displayBooks() {
-  const row = document.createElement("div");
-  const cells = document.createElement("div");
-  cells.className = "cells";
+  const row = document.createElement("tr");
   row.className = "row";
   bookTable.append(row);
-  row.append(cells);
 
-  // const titleData = document.createElement("p");
-  // const authorData = document.createElement("p");
-  // const pagesData = document.createElement("p");
-  // const bookStatusDisplayData = document.createElement("p");
+  const titleData = document.createElement("td");
+  const authorData = document.createElement("td");
+  const pagesData = document.createElement("td");
+  const bookStatusData = document.createElement("td");
+  row.append(titleData, authorData, pagesData, bookStatusData);
   for (let i = 0; i < myLibrary.length; i++) {
     titleData.textContent = myLibrary[i].title;
-
     authorData.textContent = myLibrary[i].author;
-
     pagesData.textContent = myLibrary[i].pages;
-
-    bookStatusDisplayData.textContent = myLibrary[i].status;
+    bookStatusData.textContent = myLibrary[i].status;
   }
 }
 
@@ -66,8 +52,3 @@ function addBookToLibrary() {
   authorInput.value = "";
   pagesInput.value = "";
 }
-
-// addBookToLibrary(book1);
-
-// console.log(myLibrary);
-// console.log(book1.info());
