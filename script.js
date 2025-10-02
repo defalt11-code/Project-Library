@@ -88,6 +88,7 @@ function addBookToLibrary() {
   const book = new Book(titleValue, authorValue, pagesValue, statusValue);
   myLibrary.push(book);
   console.log(myLibrary);
+  event.preventDefault();
   displayBooks();
 
   titleInput.value = "";
