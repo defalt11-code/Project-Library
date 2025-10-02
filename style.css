@@ -1,5 +1,7 @@
 :root {
   font-family: sans-serif;
+  --borderColor: #d6d6d6;
+  --th: #f7f7f7;
 }
 
 * {
@@ -106,18 +108,19 @@ button {
 table {
   margin-top: 20px;
 
-  border: 2px solid grey;
+  border: 2px solid var(--borderColor);
   border-collapse: collapse;
 }
 
 th,
 td {
-  border: 1px solid grey;
+  border: 1px solid var(--borderColor);
   padding-block: 0.5em;
 }
 
 th {
   width: min(200px, 300px);
+  background-color: var(--th);
 }
 
 th:nth-child(5) {

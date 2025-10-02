@@ -9,13 +9,13 @@ const formContainer = document.querySelector(".form-container");
 const overlay = document.querySelector("#overlay");
 
 overlay.addEventListener("click", () => {
-  overlay.classList.toggle("active")
-  formContainer.classList.toggle("active")
+  overlay.classList.toggle("active");
+  formContainer.classList.toggle("active");
 
   titleInput.value = "";
   authorInput.value = "";
   pagesInput.value = "";
-})
+});
 
 addBooksBtn.addEventListener("click", () => {
   overlay.classList.toggle("active");
