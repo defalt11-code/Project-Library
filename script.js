@@ -4,30 +4,72 @@ const authorInput = document.querySelector("#author");
 const pagesInput = document.querySelector("#pages");
 const bookStatusInput = document.querySelector("#status");
 
+const addBooksBtn = document.querySelector(".add-books");
+const formContainer = document.querySelector(".form-container");
+const overlay = document.querySelector("#overlay");
+
+addBooksBtn.addEventListener("click", () => {
+  overlay.classList.toggle("active");
+  formContainer.classList.toggle("active");
+
+  console.log("working...");
+});
+
 const bookTable = document.querySelector("table");
 
 submit.addEventListener("click", () => {
+  overlay.classList.toggle("active");
+  formContainer.classList.toggle("active");
   addBookToLibrary();
+  console.log("working...");
 });
 
 const myLibrary = [];
 
 function displayBooks() {
-  const row = document.createElement("tr");
-  row.className = "row";
-  bookTable.append(row);
+  const rows = bookTable.querySelectorAll("tr.row");
+  rows.forEach((row) => row.remove());
 
-  const titleData = document.createElement("td");
-  const authorData = document.createElement("td");
-  const pagesData = document.createElement("td");
-  const bookStatusData = document.createElement("td");
-  row.append(titleData, authorData, pagesData, bookStatusData);
-  for (let i = 0; i < myLibrary.length; i++) {
-    titleData.textContent = myLibrary[i].title;
-    authorData.textContent = myLibrary[i].author;
-    pagesData.textContent = myLibrary[i].pages;
-    bookStatusData.textContent = myLibrary[i].status;
-  }
+  myLibrary.forEach((book) => {
+    const row = document.createElement("tr");
+    row.className = "row";
+
+    const title = document.createElement("td");
+    title.textContent = book.title;
+
+    const author = document.createElement("td");
+    author.textContent = book.author;
+
+    const pages = document.createElement("td");
+    pages.textContent = book.pages;
+
+    const status = document.createElement("td");
+
+    const toggleReadBtn = document.createElement("button");
+    toggleReadBtn.textContent = book.status;
+    status.append(toggleReadBtn);
+
+    toggleReadBtn.addEventListener("click", () => {
+      book.status = book.status === "read" ? "not read" : "read";
+      displayBooks();
+    });
+
+    const removeBtnTD = document.createElement("td");
+
+    const removeBookBtn = document.createElement("button");
+    removeBookBtn.textContent = "Remove";
+
+    removeBtnTD.append(removeBookBtn);
+
+    removeBookBtn.addEventListener("click", () => {
+      const index = myLibrary.findIndex((b) => b.id === book.id);
+      myLibrary.splice(index, 1);
+      displayBooks();
+    });
+
+    row.append(title, author, pages, status, removeBtnTD);
+    bookTable.append(row);
+  });
 }
 
 function Book(title, author, pages, status) {

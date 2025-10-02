@@ -11,15 +11,22 @@
     <title>Project: Library</title>
   </head>
   <body>
-    <div>
-      <input id="title" type="text" placeholder="title" />
-      <input id="author" type="text" placeholder="author's name" />
-      <input id="pages" type="number" placeholder="pages" />
-      <select name="" id="status">
-        <option id="read" value="read">read</option>
-        <option id="notRead" value="not read yet">not read yet</option>
-      </select>
-      <button id="submit">Button</button>
+    <div id="overlay"></div>
+    <div class="header">
+      <h1 class="my-library">My library</h1>
+      <button class="add-books">+ ADD</button>
+    </div>
+    <div class="form-container">
+      <form action="">
+        <input id="title" type="text" placeholder="title" />
+        <input id="author" type="text" placeholder="author's name" />
+        <input id="pages" type="number" placeholder="pages" />
+        <select name="" id="status">
+          <option id="read" value="read">read</option>
+          <option id="notRead" value="not read yet">not read yet</option>
+        </select>
+        <button id="submit">Button</button>
+      </form>
     </div>
     <table>
       <tr>
@@ -27,6 +34,7 @@
         <th>Author</th>
         <th>Pages</th>
         <th>Status</th>
+        <th></th>
       </tr>
     </table>
     <script src="script.js"></script>

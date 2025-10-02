@@ -12,13 +12,79 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-top: 20px;
+
+  position: relative;
+}
+
+.header {
+  background-color: bisque;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: 100px;
+}
+
+.my-library {
+  margin-left: 50px;
+}
+
+.add-books {
+  margin-right: 50px;
+  padding-block: 0.55em;
+  padding-inline: 1.55em;
+}
+
+#overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  background: rgb(0 0 0 / 0.55);
+  display: none;
+}
+
+#overlay.active {
+  display: block;
+}
+
+.form-container {
+  position: absolute;
+
+  background-color: white;
+  top: 100px;
+  width: 400px;
+  height: 400px;
+  z-index: 3;
+  display: none;
+  padding: 50px;
+}
+
+.form-container.active {
+  display: block;
+}
+
+form {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  height: 100%;
 }
 
 input,
 button,
 select {
-  padding: 0.25em;
+  padding: 0.55em;
+}
+
+select {
+  width: 100px;
+}
+
+button {
+  cursor: pointer;
 }
 
 table {
@@ -36,6 +102,10 @@ td {
 
 th {
   width: min(200px, 300px);
+}
+
+th:nth-child(5) {
+  width: 100px;
 }
 
 td {
