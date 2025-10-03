@@ -21,7 +21,7 @@ addBooksBtn.addEventListener("click", () => {
   overlay.classList.toggle("active");
   formContainer.classList.toggle("active");
 
-  console.log("working...");
+  // console.log("working...");
 });
 
 const bookTable = document.querySelector("table");
@@ -30,7 +30,7 @@ submit.addEventListener("click", () => {
   overlay.classList.toggle("active");
   formContainer.classList.toggle("active");
   addBookToLibrary();
-  console.log("working...");
+  // console.log("working...");
 });
 
 const myLibrary = [];
@@ -55,25 +55,22 @@ function displayBooks() {
     const status = document.createElement("td");
 
     const toggleReadBtn = document.createElement("button");
+    toggleReadBtn.className = "toggleBtn";
     toggleReadBtn.textContent = book.status;
     status.append(toggleReadBtn);
 
     toggleReadBtn.addEventListener("click", () => {
-      book.status = book.status === "read" ? "not read" : "read";
-      displayBooks();
+      book.toggleStatus();
     });
 
     const removeBtnTD = document.createElement("td");
 
     const removeBookBtn = document.createElement("button");
     removeBookBtn.textContent = "Remove";
-
     removeBtnTD.append(removeBookBtn);
 
     removeBookBtn.addEventListener("click", () => {
-      const index = myLibrary.findIndex((b) => b.id === book.id);
-      myLibrary.splice(index, 1);
-      displayBooks();
+      book.removeBook();
     });
 
     row.append(title, author, pages, status, removeBtnTD);
@@ -88,6 +85,17 @@ function Book(title, author, pages, status) {
   this.pages = pages;
   this.status = status;
 }
+
+Book.prototype.toggleStatus = function () {
+  this.status = this.status === "read" ? "not read" : "read";
+  displayBooks();
+};
+
+Book.prototype.removeBook = function () {
+  const index = myLibrary.findIndex((b) => b.id === this.id);
+  myLibrary.splice(index, 1);
+  displayBooks();
+};
 
 function addBookToLibrary() {
   const titleValue = titleInput.value;
