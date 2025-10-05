@@ -15,8 +15,6 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-
-  position: relative;
 }
 
 .header {
@@ -39,8 +37,15 @@ body {
 
   border: none;
   border-radius: 8px;
-  box-shadow: 0px 4px 10px rgb(104, 104, 104);
+  box-shadow: 0px 0px 8px rgb(189, 189, 189);
   font-weight: 600;
+  font-size: 1rem;
+
+  transform: translate(0, -2px);
+}
+
+.add-books:active {
+  transform: translate(0, 0px);
 }
 
 #overlay {
@@ -63,18 +68,19 @@ body {
 }
 
 .form-container {
-  position: absolute;
+  position: fixed;
 
   background-color: white;
   top: 100px;
-  width: 350px;
-  height: 350px;
+  width: 400px;
+  height: 400px;
   z-index: 3;
-  padding: 30px;
+  padding: 35px;
 
   pointer-events: none;
   opacity: 0;
   transition: opacity 0.1s ease-in-out;
+  border-radius: 5px;
 }
 
 .form-container.active {
@@ -90,9 +96,16 @@ form {
 }
 
 input,
-button,
 select {
   padding: 0.55em;
+  border-radius: 8px;
+  border: 1px solid grey;
+  font-size: 1rem;
+}
+
+input:focus,
+select:focus {
+  outline: none;
 }
 
 select {
@@ -104,13 +117,56 @@ select {
   align-self: center;
 
   border: none;
-  font-weight: 500;
+  font-weight: 600;
   border-radius: 8px;
   box-shadow: 0px 0px 5px rgb(170, 170, 170);
+  padding-inline: 1em;
+  font-size: 0.85rem;
+  padding-block: 0.7em;
+  transform: translate(0, -1px);
+}
+
+#submit:active {
+  transform: translate(0, 0px);
 }
 
 button {
   cursor: pointer;
+}
+
+.remove-button {
+  padding-top: 8px;
+  padding-bottom: 5px;
+  padding-inline: 10px;
+  border: none;
+  background-color: #d6d6d6;
+  border-radius: 9px;
+  box-shadow: 0px 0px 10px #e7e7e7;
+  transform: translate(0, -2px);
+}
+
+.remove-button:active {
+  transform: translate(0, 0px);
+}
+
+.toggleBtn {
+  padding-top: 8px;
+  padding-inline: 10px;
+  padding-bottom: 8px;
+  border: none;
+  background-color: #d6d6d6;
+  border-radius: 9px;
+  box-shadow: 0px 0px 10px #e7e7e7;
+  transform: translate(0, -1px);
+  font-size: 1rem;
+}
+
+.toggleBtn:active {
+  transform: translate(0, 0px);
+}
+
+.trash-bin {
+  width: 20px;
 }
 
 table {

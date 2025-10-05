@@ -1,3 +1,7 @@
+// SAMPLE BOOK WHEN PAGE LOAD AT START
+const bookOne = new Book("Success is a decision", "Tim connor", 69, "Read");
+// SAMPLE BOOK WHEN PAGE LOAD AT START
+
 const submit = document.querySelector("#submit");
 const titleInput = document.querySelector("#title");
 const authorInput = document.querySelector("#author");
@@ -35,6 +39,11 @@ submit.addEventListener("click", () => {
 
 const myLibrary = [];
 
+//SAMPLE BOOK WHEN PAGE LOAD!!
+myLibrary.push(bookOne);
+displayBooks();
+//SAMPLE BOOK WHEN PAGE LOAD!!
+
 function displayBooks() {
   const rows = bookTable.querySelectorAll("tr.row");
   rows.forEach((row) => row.remove());
@@ -63,10 +72,16 @@ function displayBooks() {
       book.toggleStatus();
     });
 
+    const trashImg = document.createElement("img");
+    trashImg.src = "trash-bin.png";
+    trashImg.alt = "trash bin";
+    trashImg.className = "trash-bin";
+
     const removeBtnTD = document.createElement("td");
 
     const removeBookBtn = document.createElement("button");
-    removeBookBtn.textContent = "Remove";
+    removeBookBtn.className = "remove-button";
+    removeBookBtn.append(trashImg);
     removeBtnTD.append(removeBookBtn);
 
     removeBookBtn.addEventListener("click", () => {
@@ -87,7 +102,7 @@ function Book(title, author, pages, status) {
 }
 
 Book.prototype.toggleStatus = function () {
-  this.status = this.status === "read" ? "not read" : "read";
+  this.status = this.status === "Read" ? "Not read" : "Read";
   displayBooks();
 };
 
@@ -103,6 +118,13 @@ function addBookToLibrary() {
   const pagesValue = pagesInput.value;
   const statusValue = bookStatusInput.value;
   const book = new Book(titleValue, authorValue, pagesValue, statusValue);
+
+  // REMINDS THE USER TO FILL OUT ALL THE FIELDS!!
+  if (!titleInput || !authorValue || !pagesValue) {
+    alert("Please fill out all the fields before submitting!");
+    return;
+  }
+
   myLibrary.push(book);
   console.log(myLibrary);
   event.preventDefault();

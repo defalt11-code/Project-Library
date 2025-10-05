@@ -18,12 +18,12 @@
     </div>
     <div class="form-container">
       <form action="">
-        <input id="title" type="text" placeholder="title" />
-        <input id="author" type="text" placeholder="author's name" />
-        <input id="pages" type="number" placeholder="pages" />
+        <input id="title" type="text" placeholder="title" required />
+        <input id="author" type="text" placeholder="author's name" required />
+        <input id="pages" type="number" placeholder="pages" min="1" max="999" />
         <select name="" id="status">
-          <option id="read" value="read">read</option>
-          <option id="notRead" value="not read yet">not read yet</option>
+          <option id="read" value="Read">Read</option>
+          <option id="notRead" value="Not read yet">Not read yet</option>
         </select>
         <button id="submit">Add book</button>
       </form>
