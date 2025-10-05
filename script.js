@@ -121,7 +121,7 @@ function addBookToLibrary() {
 
   // REMINDS THE USER TO FILL OUT ALL THE FIELDS!!
   if (!titleInput || !authorValue || !pagesValue) {
-    alert("Please fill out all the fields before submitting!");
+    alert("Please fill out all the inputs before submitting!");
     return;
   }
 
