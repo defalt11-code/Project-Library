@@ -105,8 +105,7 @@ form {
   height: 100%;
 }
 
-input,
-select {
+input {
   padding: 0.55em;
   border-radius: 8px;
   border: 1px solid grey;
@@ -118,8 +117,54 @@ select:focus {
   outline: none;
 }
 
+select::picker-icon {
+  transition: 0.5s rotate;
+}
+
+select:open::picker-icon {
+  rotate: 180deg;
+}
+
 select {
-  width: 100px;
+  padding-block: 0.55em;
+  font-size: 1rem;
+  border: 1px solid grey;
+  border-radius: 8px;
+  padding-inline: 10px;
+  appearance: base-select;
+  width: 150px;
+
+  cursor: pointer;
+}
+
+::picker(select) {
+  appearance: base-select;
+  border: 1px solid grey;
+  border-radius: 8px;
+}
+
+option {
+  padding: 5px;
+
+  font-size: 1rem;
+  text-box: trim-both cap alphabetic;
+
+  display: flex;
+  gap: 5px;
+}
+
+option:first-child {
+  border-bottom: 1px solid grey;
+}
+
+option:hover,
+option:focus {
+  background: e7e7e7;
+  cursor: pointer;
+}
+
+option:checked {
+  font-weight: bold;
 }
 
 #submit {
