@@ -2,6 +2,7 @@
   font-family: sans-serif;
   --borderColor: #d6d6d6;
   --th: #f7f7f7;
+  --hover: rgb(206, 206, 206);
 }
 
 * {
@@ -91,6 +92,18 @@ body {
   opacity: 0;
   transition: opacity 0.1s ease-in-out;
   border-radius: 5px;
+}
+
+label {
+  color: grey;
+  font-size: 0.85rem;
+  margin-left: 5px;
+}
+
+.form-container div {
+  display: inline-flex;
+  flex-direction: column;
+  gap: 5px;
 }
 
 .form-container.active {
@@ -185,8 +198,9 @@ option:checked {
   transform: translate(0, 0px);
 }
 
-button {
+button:hover {
   cursor: pointer;
+  background-color: var(--hover);
 }
 
 .remove-button {

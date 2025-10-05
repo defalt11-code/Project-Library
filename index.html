@@ -24,10 +24,13 @@
         <input id="title" type="text" placeholder="title" required />
         <input id="author" type="text" placeholder="author's name" required />
         <input id="pages" type="number" placeholder="pages" min="1" max="999" />
-        <select name="" id="status">
-          <option id="read" value="Read">Read</option>
-          <option id="notRead" value="Not read yet">Not read yet</option>
-        </select>
+        <div>
+          <label for="status">Status:</label>
+          <select name="status" id="status">
+            <option id="read" value="Read">Read</option>
+            <option id="notRead" value="Not read yet">Not read yet</option>
+          </select>
+        </div>
         <button id="submit">Add book</button>
       </form>
     </div>
