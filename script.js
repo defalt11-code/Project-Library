@@ -1,6 +1,7 @@
 class Book {
+  id = crypto.randomUUID();
+
   constructor(title, author, pages, status) {
-    this.id = crypto.randomUUID();
     this.title = title;
     this.author = author;
     this.pages = pages;
