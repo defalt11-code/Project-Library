@@ -1,3 +1,24 @@
+class Book {
+  constructor(title, author, pages, status) {
+    this.id = crypto.randomUUID();
+    this.title = title;
+    this.author = author;
+    this.pages = pages;
+    this.status = status;
+  }
+
+  toggleStatus() {
+    this.status = this.status === "Read" ? "Not read" : "Read";
+    displayBooks();
+  }
+
+  removeBook() {
+    const index = myLibrary.findIndex((b) => b.id === this.id);
+    myLibrary.splice(index, 1);
+    displayBooks();
+  }
+}
+
 // SAMPLE BOOK WHEN PAGE LOAD AT START
 const bookOne = new Book("Success is a decision", "Tim connor", 69, "Read");
 // SAMPLE BOOK WHEN PAGE LOAD AT START
@@ -93,24 +114,24 @@ function displayBooks() {
   });
 }
 
-function Book(title, author, pages, status) {
-  this.id = crypto.randomUUID();
-  this.title = title;
-  this.author = author;
-  this.pages = pages;
-  this.status = status;
-}
+// function Book(title, author, pages, status) {
+//   this.id = crypto.randomUUID();
+//   this.title = title;
+//   this.author = author;
+//   this.pages = pages;
+//   this.status = status;
+// }
 
-Book.prototype.toggleStatus = function () {
-  this.status = this.status === "Read" ? "Not read" : "Read";
-  displayBooks();
-};
+// Book.prototype.toggleStatus = function () {
+//   this.status = this.status === "Read" ? "Not read" : "Read";
+//   displayBooks();
+// };
 
-Book.prototype.removeBook = function () {
-  const index = myLibrary.findIndex((b) => b.id === this.id);
-  myLibrary.splice(index, 1);
-  displayBooks();
-};
+// Book.prototype.removeBook = function () {
+//   const index = myLibrary.findIndex((b) => b.id === this.id);
+//   myLibrary.splice(index, 1);
+//   displayBooks();
+// };
 
 function addBookToLibrary() {
   const titleValue = titleInput.value;
